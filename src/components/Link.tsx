@@ -11,7 +11,7 @@ export function Link({ label, textColor, link }: LinkType) {
   return (
     <NavLink
       className={({ isActive }) =>
-        [isActive && 'underline', textColor].join(' ')
+        [isActive && 'underline', 'text-[24px]', textColor].join(' ')
       }
       to={link}
     >

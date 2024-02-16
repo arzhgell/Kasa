@@ -3,14 +3,22 @@ import React from 'react';
 type HeroType = {
   backgroundImage: string;
   label: string;
+  className?: string;
 };
 
-export function Hero({ backgroundImage, label }: HeroType) {
+export function Hero({ backgroundImage, label, className }: HeroType) {
   return (
-    <div
-      className={`${backgroundImage} h-[223px] text-white flex justify-center items-center text-[48px] bg-cover rounded-[25px]`}
-    >
-      {label}
+    <div className={`${className} relative overflow-hidden rounded-[25px]`}>
+      <img
+        src={backgroundImage}
+        alt={label}
+        className="w-full h-full object-cover"
+      />
+      {label && (
+        <div className="absolute top-0 left-0 w-full h-full bg-black/30 flex justify-center items-center text-white  text-[24px] md:text-[48px] ">
+          <p>{label}</p>
+        </div>
+      )}
     </div>
   );
 }

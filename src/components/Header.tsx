@@ -1,5 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import logo from 'assets/illustrations/logo.svg';
+
 import { Link } from './Link';
 export function Header() {
   const links = [
@@ -8,7 +11,9 @@ export function Header() {
   ];
   return (
     <header className="flex justify-between items-center">
-      <img src={logo} alt="logo" />
+      <NavLink to="/">
+        <img src={logo} alt="logo" />
+      </NavLink>
 
       <div className="flex gap-8">
         {links.map((link) => {

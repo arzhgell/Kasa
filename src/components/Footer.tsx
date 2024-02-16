@@ -1,4 +1,5 @@
 import React from 'react';
+
 import logo from 'assets/illustrations/logo-bw.svg';
 export function Footer() {
   return (
@@ -7,7 +8,7 @@ export function Footer() {
       text-white
     >
       <img src={logo} alt="logo" />
-      <p>© 2020 Kasa. All rights reserved</p>
+      <p className="text-[24px]">© 2020 Kasa. All rights reserved</p>
     </footer>
   );
 }
