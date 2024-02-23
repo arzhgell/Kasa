@@ -37,35 +37,33 @@ export function HomeDetail() {
   }, []);
 
   return home ? (
-    <div>
-      <div>
-        <Hero
-          backgroundImage={home.cover}
-          label=""
-          className="h-[255px] md:h-[415px]"
-        />
-      </div>
+    <main className="flex flex-col gap-[16px]">
+      <Hero
+        backgroundImage={home.cover}
+        label=""
+        className="h-[255px] md:h-[415px]"
+      />
       <div className="flex flex-col gap-4">
-        <div className="text-primary flex justify-between">
-          <div>
+        <div className="text-primary flex flex-col md:flex-row justify-between">
+          <div className="flex flex-col gap-[8px]">
             <p className="text-[36px]">{home.title}</p>
             <p className="text-[18px]">{home.location}</p>
+            <div className="flex gap-2">
+              {home.tags?.map((tag) => {
+                return <Tag label={tag} />;
+              })}
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <p className="text-[18px]">{home.host?.name}</p>
-            <Avatar img={home.host?.picture} />
+          <div className="flex w-full justify-between flex-row-reverse md:flex-col md:w-fit md:h-fit items-center gap-2">
+            <div className="flex items-center gap-2">
+              <p className="text-[18px] w-min text-right">{home.host?.name}</p>
+              <Avatar img={home.host?.picture} />
+            </div>
+            <Stars rate={Number(home.rating)} />
           </div>
-        </div>
-        <div className="flex justify-between">
-          <div className="flex gap-2">
-            {home.tags?.map((tag) => {
-              return <Tag label={tag} />;
-            })}
-          </div>
-          <Stars rate={Number(home.rating)} />
         </div>
 
-        <div className="flex justify-between gap-4">
+        <div className="flex flex-col md:flex-row justify-between gap-4">
           <Drawer label="Description" content={home.description} />{' '}
           <Drawer
             label="Equipements"
@@ -79,7 +77,7 @@ export function HomeDetail() {
           />
         </div>
       </div>
-    </div>
+    </main>
   ) : (
     <p>Loading...</p>
   );

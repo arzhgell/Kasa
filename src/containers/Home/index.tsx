@@ -9,7 +9,7 @@ import { Hero } from 'components/Hero';
 export function Home() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-8">
+    <main className="flex flex-col gap-8">
       <Hero
         backgroundImage={hero}
         label="Chez vous, partout et ailleurs"
@@ -28,6 +28,6 @@ export function Home() {
           );
         })}
       </div>
-    </div>
+    </main>
   );
 }

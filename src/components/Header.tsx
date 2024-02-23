@@ -11,11 +11,11 @@ export function Header() {
   ];
   return (
     <header className="flex justify-between items-center">
-      <NavLink to="/">
+      <NavLink to="/" className="w-4/12 md:6/12">
         <img src={logo} alt="logo" />
       </NavLink>
 
-      <div className="flex gap-8">
+      <nav className="flex gap-8 items-center">
         {links.map((link) => {
           return (
             <Link
@@ -25,7 +25,7 @@ export function Header() {
             />
           );
         })}
-      </div>
+      </nav>
     </header>
   );
 }

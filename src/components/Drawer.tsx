@@ -11,9 +11,9 @@ export function Drawer({ label, content }: DrawType) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="w-full bg-grey">
+    <div className="w-full bg-grey h-fit">
       <div
-        className="bg-primary rounded-[10px] text-white px-4 py-2 cursor-pointer flex justify-between items-center"
+        className="bg-primary rounded-[10px] text-white px-2 py-2 md:py-4 cursor-pointer flex justify-between items-center"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
