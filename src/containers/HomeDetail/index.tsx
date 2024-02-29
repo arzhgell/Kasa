@@ -5,7 +5,7 @@ import homes from 'assets/json/logements.json';
 
 import { Avatar } from 'components/Avatar';
 import { Drawer } from 'components/Drawer';
-import { Hero } from 'components/Hero';
+import { Slider } from 'components/Slider';
 import { Stars } from 'components/Stars';
 import { Tag } from 'components/Tag';
 
@@ -21,6 +21,7 @@ type HomeType = {
   };
   rating: string;
   tags: string[];
+  pictures: string[];
   equipments: string[];
 };
 
@@ -36,13 +37,9 @@ export function HomeDetail() {
     fetchHome();
   }, []);
 
-  return home ? (
+  return home.pictures ? (
     <main className="flex flex-col gap-[16px]">
-      <Hero
-        backgroundImage={home.cover}
-        label=""
-        className="h-[255px] md:h-[415px]"
-      />
+      <Slider backgroundImages={home.pictures} />
       <div className="flex flex-col gap-4">
         <div className="text-primary flex flex-col md:flex-row justify-between">
           <div className="flex flex-col gap-[8px]">
